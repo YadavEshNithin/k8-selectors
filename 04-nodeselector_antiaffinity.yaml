@@ -11,7 +11,7 @@ spec:
           - key: hardware
             operator: NotIn
             values:
-            # - gpu
+            - gpu
   containers:
   - name: nginx
     image: nginx
