@@ -21,25 +21,25 @@ metadata:
 spec:
   affinity:
     podAntiAffinity:
-      # requiredDuringSchedulingIgnoredDuringExecution:
-      #   - labelSelector:
-      #       matchExpressions:
-      #         - key: app-name
-      #           operator: In
-      #           values:
-      #             - pod-1
-      #             # - pod-111
-      #     topologyKey: "kubernetes.io/hostname"
-      preferredDuringSchedulingIgnoredDuringExecution:
-      - weight: 1
-        podAffinityTerm:
-          labelSelector:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        - labelSelector:
             matchExpressions:
-            - key: app-name
-              operator: In
-              values:
-              - pod-1
+              - key: app-name
+                operator: In
+                values:
+                  - pod-1
+                  # - pod-111
           topologyKey: "kubernetes.io/hostname"
+      # preferredDuringSchedulingIgnoredDuringExecution: #from here not mentioned in session, own example tried
+      # - weight: 1
+      #   podAffinityTerm:
+      #     labelSelector:
+      #       matchExpressions:
+      #       - key: app-name
+      #         operator: In
+      #         values:
+      #         - pod-1
+      #     topologyKey: "kubernetes.io/hostname"
   containers:
     - name: pod-2
       image: redis:3.2-alpine
