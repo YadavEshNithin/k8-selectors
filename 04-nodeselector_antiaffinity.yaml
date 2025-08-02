@@ -17,7 +17,7 @@ spec:
         preference:
           matchExpressions:
           - key: hardware
-            operator: In
+            operator: NotIn
             values:
             # - gpu
             - gpu
