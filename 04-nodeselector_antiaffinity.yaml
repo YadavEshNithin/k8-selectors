@@ -20,7 +20,7 @@ spec:
             operator: In
             values:
             # - gpu
-            - gpuuu 
+            - gpu
   containers:
   - name: nginx
     image: nginx
